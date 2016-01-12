@@ -1,0 +1,200 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results skipped="5" failed="0" total="5" passed="0">
+  <reporter-output>
+  </reporter-output>
+  <suite name="Suite" duration-ms="65" started-at="2016-01-12T07:07:53Z" finished-at="2016-01-12T07:07:53Z">
+    <groups>
+    </groups>
+    <test name="WalmartEndToEndTranscationFlow" duration-ms="65" started-at="2016-01-12T07:07:53Z" finished-at="2016-01-12T07:07:53Z">
+      <class name="test.WalmartEndToEndTranscationFlow">
+        <test-method status="PASS" signature="beforeTest()[pri:0, instance:test.WalmartEndToEndTranscationFlow@5a39699c]" name="beforeTest" is-config="true" duration-ms="15717" started-at="2016-01-11T23:07:37Z" finished-at="2016-01-11T23:07:53Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- beforeTest -->
+        <test-method status="FAIL" signature="WalmartUserLogin(java.lang.String, java.lang.String)[pri:0, instance:test.WalmartEndToEndTranscationFlow@5a39699c]" name="WalmartUserLogin" is-config="true" duration-ms="0" started-at="2016-01-11T23:07:53Z" finished-at="2016-01-11T23:07:53Z">
+          <exception class="org.testng.TestNGException">
+            <message>
+              <![CDATA[
+Parameter 'email' is required by @Configuration on method WalmartUserLogin but has not been marked @Optional or defined
+in C:\Users\priyanka\walmart-e-commerce-transaction-flow\WalmartEndToEndTranscationFlow.xml]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[org.testng.TestNGException: 
+Parameter 'email' is required by @Configuration on method WalmartUserLogin but has not been marked @Optional or defined
+in C:\Users\priyanka\walmart-e-commerce-transaction-flow\WalmartEndToEndTranscationFlow.xml
+	at org.testng.internal.Parameters.createParameters(Parameters.java:154)
+	at org.testng.internal.Parameters.createParameters(Parameters.java:361)
+	at org.testng.internal.Parameters.createConfigurationParameters(Parameters.java:84)
+	at org.testng.internal.Invoker.invokeConfigurations(Invoker.java:201)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:589)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:822)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1130)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:129)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:112)
+	at org.testng.TestRunner.privateRun(TestRunner.java:782)
+	at org.testng.TestRunner.run(TestRunner.java:632)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:366)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:361)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:319)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:268)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1244)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1169)
+	at org.testng.TestNG.run(TestNG.java:1064)
+	at org.testng.remote.RemoteTestNG.run(RemoteTestNG.java:113)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:206)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:177)
+]]>
+            </full-stacktrace>
+          </exception> <!-- org.testng.TestNGException -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- WalmartUserLogin -->
+        <test-method status="SKIP" signature="EmptyCartIfNotEmpty()[pri:0, instance:test.WalmartEndToEndTranscationFlow@5a39699c]" name="EmptyCartIfNotEmpty" is-config="true" duration-ms="0" started-at="2016-01-11T23:07:53Z" depends-on-methods="test.WalmartEndToEndTranscationFlow.WalmartUserLogin" finished-at="2016-01-11T23:07:53Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- EmptyCartIfNotEmpty -->
+        <test-method status="SKIP" signature="SearchForItem(java.lang.String)[pri:0, instance:test.WalmartEndToEndTranscationFlow@5a39699c]" name="SearchForItem" duration-ms="1" started-at="2016-01-11T23:07:53Z" finished-at="2016-01-11T23:07:53Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[tv]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- SearchForItem -->
+        <test-method status="SKIP" signature="SelectItemViewProductDetails()[pri:0, instance:test.WalmartEndToEndTranscationFlow@5a39699c]" name="SelectItemViewProductDetails" duration-ms="0" started-at="2016-01-11T23:07:53Z" depends-on-methods="test.WalmartEndToEndTranscationFlow.SearchForItem" finished-at="2016-01-11T23:07:53Z">
+          <exception class="java.lang.Throwable">
+            <message>
+              <![CDATA[Method WalmartEndToEndTranscationFlow.SelectItemViewProductDetails()[pri:0, instance:test.WalmartEndToEndTranscationFlow@5a39699c] depends on not successfully finished methods]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[java.lang.Throwable: Method WalmartEndToEndTranscationFlow.SelectItemViewProductDetails()[pri:0, instance:test.WalmartEndToEndTranscationFlow@5a39699c] depends on not successfully finished methods
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1039)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:129)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:112)
+	at org.testng.TestRunner.privateRun(TestRunner.java:782)
+	at org.testng.TestRunner.run(TestRunner.java:632)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:366)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:361)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:319)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:268)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1244)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1169)
+	at org.testng.TestNG.run(TestNG.java:1064)
+	at org.testng.remote.RemoteTestNG.run(RemoteTestNG.java:113)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:206)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:177)
+]]>
+            </full-stacktrace>
+          </exception> <!-- java.lang.Throwable -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- SelectItemViewProductDetails -->
+        <test-method status="SKIP" signature="AddItemToCart()[pri:0, instance:test.WalmartEndToEndTranscationFlow@5a39699c]" name="AddItemToCart" duration-ms="0" started-at="2016-01-11T23:07:53Z" depends-on-methods="test.WalmartEndToEndTranscationFlow.SelectItemViewProductDetails" finished-at="2016-01-11T23:07:53Z">
+          <exception class="java.lang.Throwable">
+            <message>
+              <![CDATA[Method WalmartEndToEndTranscationFlow.AddItemToCart()[pri:0, instance:test.WalmartEndToEndTranscationFlow@5a39699c] depends on not successfully finished methods]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[java.lang.Throwable: Method WalmartEndToEndTranscationFlow.AddItemToCart()[pri:0, instance:test.WalmartEndToEndTranscationFlow@5a39699c] depends on not successfully finished methods
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1039)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:129)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:112)
+	at org.testng.TestRunner.privateRun(TestRunner.java:782)
+	at org.testng.TestRunner.run(TestRunner.java:632)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:366)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:361)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:319)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:268)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1244)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1169)
+	at org.testng.TestNG.run(TestNG.java:1064)
+	at org.testng.remote.RemoteTestNG.run(RemoteTestNG.java:113)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:206)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:177)
+]]>
+            </full-stacktrace>
+          </exception> <!-- java.lang.Throwable -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- AddItemToCart -->
+        <test-method status="SKIP" signature="ValidateItemAddedToCart()[pri:0, instance:test.WalmartEndToEndTranscationFlow@5a39699c]" name="ValidateItemAddedToCart" duration-ms="0" started-at="2016-01-11T23:07:53Z" depends-on-methods="test.WalmartEndToEndTranscationFlow.AddItemToCart" finished-at="2016-01-11T23:07:53Z">
+          <exception class="java.lang.Throwable">
+            <message>
+              <![CDATA[Method WalmartEndToEndTranscationFlow.ValidateItemAddedToCart()[pri:0, instance:test.WalmartEndToEndTranscationFlow@5a39699c] depends on not successfully finished methods]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[java.lang.Throwable: Method WalmartEndToEndTranscationFlow.ValidateItemAddedToCart()[pri:0, instance:test.WalmartEndToEndTranscationFlow@5a39699c] depends on not successfully finished methods
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1039)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:129)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:112)
+	at org.testng.TestRunner.privateRun(TestRunner.java:782)
+	at org.testng.TestRunner.run(TestRunner.java:632)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:366)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:361)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:319)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:268)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1244)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1169)
+	at org.testng.TestNG.run(TestNG.java:1064)
+	at org.testng.remote.RemoteTestNG.run(RemoteTestNG.java:113)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:206)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:177)
+]]>
+            </full-stacktrace>
+          </exception> <!-- java.lang.Throwable -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- ValidateItemAddedToCart -->
+        <test-method status="SKIP" signature="EmptyCart()[pri:0, instance:test.WalmartEndToEndTranscationFlow@5a39699c]" name="EmptyCart" duration-ms="0" started-at="2016-01-11T23:07:53Z" depends-on-methods="test.WalmartEndToEndTranscationFlow.ValidateItemAddedToCart" finished-at="2016-01-11T23:07:53Z">
+          <exception class="java.lang.Throwable">
+            <message>
+              <![CDATA[Method WalmartEndToEndTranscationFlow.EmptyCart()[pri:0, instance:test.WalmartEndToEndTranscationFlow@5a39699c] depends on not successfully finished methods]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[java.lang.Throwable: Method WalmartEndToEndTranscationFlow.EmptyCart()[pri:0, instance:test.WalmartEndToEndTranscationFlow@5a39699c] depends on not successfully finished methods
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1039)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:129)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:112)
+	at org.testng.TestRunner.privateRun(TestRunner.java:782)
+	at org.testng.TestRunner.run(TestRunner.java:632)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:366)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:361)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:319)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:268)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1244)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1169)
+	at org.testng.TestNG.run(TestNG.java:1064)
+	at org.testng.remote.RemoteTestNG.run(RemoteTestNG.java:113)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:206)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:177)
+]]>
+            </full-stacktrace>
+          </exception> <!-- java.lang.Throwable -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- EmptyCart -->
+        <test-method status="SKIP" signature="afterTest()[pri:0, instance:test.WalmartEndToEndTranscationFlow@5a39699c]" name="afterTest" is-config="true" duration-ms="4" started-at="2016-01-11T23:07:53Z" finished-at="2016-01-11T23:07:53Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- afterTest -->
+        <test-method status="SKIP" signature="WalmartUserLogout()[pri:0, instance:test.WalmartEndToEndTranscationFlow@5a39699c]" name="WalmartUserLogout" is-config="true" duration-ms="0" started-at="2016-01-11T23:07:53Z" finished-at="2016-01-11T23:07:53Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- WalmartUserLogout -->
+      </class> <!-- test.WalmartEndToEndTranscationFlow -->
+    </test> <!-- WalmartEndToEndTranscationFlow -->
+  </suite> <!-- Suite -->
+</testng-results>

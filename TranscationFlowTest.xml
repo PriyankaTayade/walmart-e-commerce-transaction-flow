@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Suite">
+  <test name="TranscationFlowTest_1">
+    <parameter name="item" value="tv"></parameter>
+    <classes>
+      <class name="test.TranscationFlowTest"/>
+    </classes>
+  </test> <!-- TranscationFlowTest_1 -->
+  
+    <test name="TranscationFlowTest_2">
+    <parameter name="item" value="dvd"></parameter>
+    <classes>
+      <class name="test.TranscationFlowTest"/>
+    </classes>
+  </test> <!-- TranscationFlowTest_2 -->
+  
+    <test name="TranscationFlowTest_3">
+    <parameter name="item" value="socks"></parameter>
+    <classes>
+      <class name="test.TranscationFlowTest"/>
+    </classes>
+  </test> <!-- TranscationFlowTest_3 -->
+  
+    <test name="TranscationFlowTest_4">
+    <parameter name="item" value="toys"></parameter>
+    <classes>
+      <class name="test.TranscationFlowTest"/>
+    </classes>
+  </test> <!-- TranscationFlowTest_4 -->
+  
+     <test name="TranscationFlowTest_5">
+    <parameter name="item" value="iphone"></parameter>
+    <classes>
+      <class name="test.TranscationFlowTest"/>
+    </classes>
+  </test> <!-- TranscationFlowTest_5 -->
+</suite> <!-- Suite -->

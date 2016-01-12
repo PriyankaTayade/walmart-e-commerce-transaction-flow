@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite guice-stage="DEVELOPMENT" name="Failed suite [Suite]">
+  <test name="WalmartEndToEndTranscationFlow">
+    <classes>
+      <class name="test.WalmartEndToEndTranscationFlow">
+        <methods>
+          <include name="SearchForItem">
+            <parameter name="item" value="tv"/>
+          </include> <!-- SearchForItem -->
+          <include name="SelectItemViewProductDetails"/>
+          <include name="AddItemToCart"/>
+          <include name="ValidateItemAddedToCart"/>
+          <include name="EmptyCart"/>
+          <include name="SearchForItem">
+            <parameter name="item" value="dvd"/>
+          </include> <!-- SearchForItem -->
+          <include name="SelectItemViewProductDetails"/>
+          <include name="AddItemToCart"/>
+          <include name="ValidateItemAddedToCart"/>
+          <include name="EmptyCart"/>
+          <include name="SearchForItem">
+            <parameter name="item" value="socks"/>
+          </include> <!-- SearchForItem -->
+          <include name="SelectItemViewProductDetails"/>
+          <include name="AddItemToCart"/>
+          <include name="ValidateItemAddedToCart"/>
+          <include name="EmptyCart"/>
+          <include name="SearchForItem">
+            <parameter name="item" value="toys"/>
+          </include> <!-- SearchForItem -->
+          <include name="SelectItemViewProductDetails"/>
+          <include name="AddItemToCart"/>
+          <include name="ValidateItemAddedToCart"/>
+          <include name="EmptyCart"/>
+          <include name="SearchForItem">
+            <parameter name="item" value="iphone"/>
+          </include> <!-- SearchForItem -->
+          <include name="SelectItemViewProductDetails"/>
+          <include name="AddItemToCart"/>
+          <include name="ValidateItemAddedToCart"/>
+          <include name="EmptyCart"/>
+        </methods>
+      </class> <!-- test.WalmartEndToEndTranscationFlow -->
+    </classes>
+  </test> <!-- WalmartEndToEndTranscationFlow -->
+  <test name="WalmartEndToEndTranscationFlow(failed)">
+    <classes>
+      <class name="test.WalmartEndToEndTranscationFlow">
+        <methods>
+          <include name="SelectItemViewProductDetails"/>
+          <include name="ValidateItemAddedToCart"/>
+          <include name="SearchForItem"/>
+          <include name="beforeTest"/>
+          <include name="EmptyCart"/>
+          <include name="AddItemToCart"/>
+        </methods>
+      </class> <!-- test.WalmartEndToEndTranscationFlow -->
+    </classes>
+  </test> <!-- WalmartEndToEndTranscationFlow(failed) -->
+</suite> <!-- Failed suite [Suite] -->
