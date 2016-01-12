@@ -43,12 +43,12 @@ SCENARIO TO AUTOMATE:
 Test Case:  Login using existing account
 -----------------------------------------------------------------------------
 Test cases covered
-1. Checks if user is able to login using valid credentials.
-2. After successful login is valid login success message displayed
+1.  Checks if user is able to login using valid credentials.
+2.  After successful login is valid login success message displayed.
 
 Test cases not covered
-1. if invalid login credentials are provided, user is not able to login.
-2. if invalid login credentials are provided, is correct error message displayed
+1. If invalid login credentials are provided, user is not able to login.
+2. If invalid login credentials are provided, is correct error message displayed.
 
 Test Case:  Logout from account
 -----------------------------------------------------------------------------
