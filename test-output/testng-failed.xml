@@ -1,61 +1,36 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite guice-stage="DEVELOPMENT" name="Failed suite [Suite]">
-  <test name="WalmartEndToEndTranscationFlow">
+  <parameter name="zipcode" value="95050"/>
+  <parameter name="item" value="iphone"/>
+  <test name="TranscationFlowTest_1">
+    <parameter name="item" value="tv"/>
     <classes>
-      <class name="test.WalmartEndToEndTranscationFlow">
-        <methods>
-          <include name="SearchForItem">
-            <parameter name="item" value="tv"/>
-          </include> <!-- SearchForItem -->
-          <include name="SelectItemViewProductDetails"/>
-          <include name="AddItemToCart"/>
-          <include name="ValidateItemAddedToCart"/>
-          <include name="EmptyCart"/>
-          <include name="SearchForItem">
-            <parameter name="item" value="dvd"/>
-          </include> <!-- SearchForItem -->
-          <include name="SelectItemViewProductDetails"/>
-          <include name="AddItemToCart"/>
-          <include name="ValidateItemAddedToCart"/>
-          <include name="EmptyCart"/>
-          <include name="SearchForItem">
-            <parameter name="item" value="socks"/>
-          </include> <!-- SearchForItem -->
-          <include name="SelectItemViewProductDetails"/>
-          <include name="AddItemToCart"/>
-          <include name="ValidateItemAddedToCart"/>
-          <include name="EmptyCart"/>
-          <include name="SearchForItem">
-            <parameter name="item" value="toys"/>
-          </include> <!-- SearchForItem -->
-          <include name="SelectItemViewProductDetails"/>
-          <include name="AddItemToCart"/>
-          <include name="ValidateItemAddedToCart"/>
-          <include name="EmptyCart"/>
-          <include name="SearchForItem">
-            <parameter name="item" value="iphone"/>
-          </include> <!-- SearchForItem -->
-          <include name="SelectItemViewProductDetails"/>
-          <include name="AddItemToCart"/>
-          <include name="ValidateItemAddedToCart"/>
-          <include name="EmptyCart"/>
-        </methods>
-      </class> <!-- test.WalmartEndToEndTranscationFlow -->
+      <class name="test.TranscationFlowTest"/>
     </classes>
-  </test> <!-- WalmartEndToEndTranscationFlow -->
-  <test name="WalmartEndToEndTranscationFlow(failed)">
+  </test> <!-- TranscationFlowTest_1 -->
+  <test name="TranscationFlowTest_2">
+    <parameter name="item" value="dvd"/>
     <classes>
-      <class name="test.WalmartEndToEndTranscationFlow">
-        <methods>
-          <include name="SelectItemViewProductDetails"/>
-          <include name="ValidateItemAddedToCart"/>
-          <include name="SearchForItem"/>
-          <include name="beforeTest"/>
-          <include name="EmptyCart"/>
-          <include name="AddItemToCart"/>
-        </methods>
-      </class> <!-- test.WalmartEndToEndTranscationFlow -->
+      <class name="test.TranscationFlowTest"/>
     </classes>
-  </test> <!-- WalmartEndToEndTranscationFlow(failed) -->
+  </test> <!-- TranscationFlowTest_2 -->
+  <test name="TranscationFlowTest_3">
+    <parameter name="item" value="socks"/>
+    <classes>
+      <class name="test.TranscationFlowTest"/>
+    </classes>
+  </test> <!-- TranscationFlowTest_3 -->
+  <test name="TranscationFlowTest_4">
+    <parameter name="item" value="toys"/>
+    <classes>
+      <class name="test.TranscationFlowTest"/>
+    </classes>
+  </test> <!-- TranscationFlowTest_4 -->
+  <test name="TranscationFlowTest_5">
+    <parameter name="item" value="iphone"/>
+    <classes>
+      <class name="test.TranscationFlowTest"/>
+    </classes>
+  </test> <!-- TranscationFlowTest_5 -->
 </suite> <!-- Failed suite [Suite] -->

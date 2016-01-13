@@ -1,7 +1,7 @@
-Auhtor:      Priyanka Tayade
+Author:      Priyanka Tayade
 Email:       priyanka.tayadeb@gmail.com
 Created On:  1/8/2016
-version: 1.0
+Version: 1.0
 
 MAINTENANCE
 ------------------------------------------------------------------------
@@ -16,9 +16,7 @@ REQUIREMNT TO RUN THE PROJECT
 
 PURPOSE:
 -------------------------------------------------------------------------
-
-Automate an end-to-end user e-commerce transaction flow using any open source tool 
-for www.walmart.com with an existing customer on Chrome browser.
+Automate an end-to-end user e-commerce transaction flow using any open source tool for www.walmart.com with an existing customer on Chrome browser.
 
 SCENARIO TO AUTOMATE:
 -------------------------------------------------------------------------
@@ -63,18 +61,18 @@ Test Case: Perform a search on home page from a pool of key words given below
 Test cases covered
 1. Test suite cover 5 test cases with each test searching for these terms: tv, socks, dvd, toys, iPhone and respectively
 
+Test cases covered
+1. If items are not displayed and instead category or department choices are displayed, example for special cases like toys
 
 Test Case: Identify an item from the result set that you can add to cart
 ----------------------------------------------------------------------------
-
 Test cases covered
 1. User is able to select an item from the list of item displayed.
-2. If items are not displayed and instead category or department choices are displayed, example for special cases like toys
 
 Implementation Details
 1. For special cases like toys if the list of items is not displayed.
 2. First category from left menu is selected iteratively till the list of item is displayed.
-3. This implementation can go in an infinite loop, therefore maximum number of time this iterative selection is done is set to 4 before terminating the case. 
+3. This implementation can go in an infinite loop, therefore maximum number of time this iterative selection is done is set to 5 before terminating the case. 
 
 Test Case: Add the item to cart
 ----------------------------------------------------------------------------
@@ -92,20 +90,18 @@ Test cases not covered
 
 
 Test Case: Validate that item added is present in the cart and is the only item in the cart
---------------------------------------------------------------------------------------------
+-----------------------------------------------------------------------------
 Test cases covered
 1. After successful logout is valid logout success message displayed
 
 Test cases not covered
 1. Checks if user after logout, user session is no longer present.
-
-
 TEST DATA:
 -------------------------------------------------------------------------
 
 • Account details: created own account with following credentials
-	user name: priyanka.tayadeb@gmail.com
-	password:abcd123
+	User name: priyanka.tayadeb@gmail.com
+	Password:  abcd123
 
 • Search terms: tv, socks, dvd, toys, iPhone
 	
@@ -120,7 +116,7 @@ Method 1
 
 Method 2
 1. Download the compressed project file  
-2. extract the file in local project folder
+2. Extract the file in local project folder
  
 STEP 2: CREATE MAVEN PROJECT 
 
@@ -141,19 +137,12 @@ STEP 3: RUN THE TEST AS TESTNG SUITE
 
 
 LIMITATION:
-------------------------------------------------------------------------------
+-----------------------------------------------------------------------------
 1. Due to time constrained did not test and implement on all browsers and systems.
-2. Lack of resources such as os.
+2. Lack of resources such as OS.
 3. Did not cover all the test scenarios due to time constraint.
 
 TRADE OFF
-------------------------------------------------------------------------------
+-----------------------------------------------------------------------------
 1. wait conditions are very helpful but not in case of add to cart where some elements such as zip code or color check box might not be present for all search item in the cart making add to cart function slow.
  
-
-
-
-
-
-
-

@@ -10,6 +10,9 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+
+import com.gargoylesoftware.htmlunit.javascript.host.Element;
+
 import org.openqa.selenium.JavascriptExecutor;
 
 /**
@@ -89,6 +92,7 @@ public class SeleniumHelper {
 		}
 		catch(Exception e)
 		{
+			//e.printStackTrace();
 			return null;
 		}
 	}
@@ -161,7 +165,7 @@ public class SeleniumHelper {
 	* @param Data
 	* @throws InterruptedException
 	*/
-	public void addDataToTextField(WebElement element, String Data) throws InterruptedException{
+	public void addDataToTextField(WebElement element, String Data) {
 		//int attempt=1;
 		//while(attempt<3){
 		try
@@ -183,7 +187,7 @@ public class SeleniumHelper {
 	* @param element
 	* @throws InterruptedException
 	*/
-	public void clickElement(WebElement element) throws InterruptedException{
+	public void clickElement(WebElement element) {
 
 		try
 		{
@@ -191,7 +195,7 @@ public class SeleniumHelper {
 		}
 		catch(Exception e)
 		{
-
+			//e.printStackTrace();
 		}
 	
 	}
@@ -202,7 +206,7 @@ public class SeleniumHelper {
 	* @param text
 	* @return
 	*/
-	public boolean getText(WebElement element, String text) {
+	public boolean matchText(WebElement element, String text) {
 
 		try
 		{
@@ -235,13 +239,10 @@ public class SeleniumHelper {
 		try
 		{
 			return _driver.manage().getCookieNamed("cart-item-count").getValue();
-			//return;
 		}
 		catch(Exception e)
 		{
-			//attempt++;
 			//e.printStackTrace();
-			//_waitForElement();
 			return "";
 		}	
 	}
@@ -257,6 +258,18 @@ public class SeleniumHelper {
 	
 	public void Close() {
 		_driver.close();
+	}
+
+	public String getText(WebElement element) {
+		try
+		{
+			return element.getText();
+		}
+		catch(Exception e)
+		{
+			//e.printStackTrace();
+			return "";
+		}
 	}
 
 }
