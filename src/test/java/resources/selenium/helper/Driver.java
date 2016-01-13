@@ -24,28 +24,8 @@ public class Driver {
 		if(SystemUtils.IS_OS_WINDOWS)
 		{
 		
-			System.out.println("It's a Windows OS");
-			
 			System.setProperty("webdriver.chrome.driver", _CROME_DRIVER_WIN32_PATH);
 			_driver = new ChromeDriver();
-		
-		}
-		else if(SystemUtils.IS_OS_LINUX)
-		{
-				
-			System.out.println("This system has a LINUX OS, Not yet implemented for Linux");
-			
-			//default driver
-			_driver=new FirefoxDriver();
-		
-		}
-		else if(SystemUtils.IS_OS_MAC)
-		{
-		
-			System.out.println("This system has a MAC OS, Not yet implemented for MAC");
-			
-			//default driver
-			_driver=new FirefoxDriver();
 		
 		}
 		else 
