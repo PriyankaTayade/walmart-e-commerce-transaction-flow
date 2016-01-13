@@ -46,6 +46,6 @@ Network Trash Folder
 Temporary Items
 .apdisk
 
-.settings/
-target/
-test-output/
+.settings
+target
+test-output
