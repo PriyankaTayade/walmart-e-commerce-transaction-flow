@@ -182,12 +182,17 @@ STEP 3: RUN THE TEST AS TESTNG SUITE
 
 LIMITATION:
 -----------------------------------------------------------------------------
-1. Due to time constrained did not test and implement on all browsers and systems.
-2. Lack of resources such as OS.
+1. Due to time constrained did not test and implement on all browsers and systems due to lack of resources such as OS.
 3. Did not cover all the test scenarios due to time constraint.
 
 TRADE OFF
 -----------------------------------------------------------------------------
-1. wait conditions are very helpful but not in case of add to cart where some elements such as zip code or color check box might not be present for all search item in the cart making add to cart function slow.
+1. wait conditions are very helpful but not in case of add to cart where some elements such as zip code or color check box might not be present for all search item in the cart making add to cart function slow. this can be optimized.
+
+TECHNICAL CHOICES
+-----------------------------------------------------------------------------
+1. Selenium was easy to learn quickly in 2 days, lots of material available online
+2. Selenium was a good choice for the assignment requirement since I had to only automate web application UI
+
  
 
