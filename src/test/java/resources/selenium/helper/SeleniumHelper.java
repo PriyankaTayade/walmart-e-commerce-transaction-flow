@@ -11,19 +11,20 @@ import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-import com.gargoylesoftware.htmlunit.javascript.host.Element;
-
 import org.openqa.selenium.JavascriptExecutor;
 
 /**
+* This class initialize the driver with the help of driver class, 
+* and set parameters for the driver .
+* SeleniumHelper class provides various selenium driver methods 
 * 
-* @author priyanka
-*
+* @author priyanka tayade
+* @version 1.0
 */
 public class SeleniumHelper {
 	
-	public WebDriver _driver;
-	WebDriverWait _wait;
+	private WebDriver _driver;
+	private WebDriverWait _wait;
 	private final long _PAGE_LOAD_TIMEOUT=60;
 	private final long _IMPLICIT_TIMEOUT=10;
 	
@@ -32,9 +33,7 @@ public class SeleniumHelper {
 	*/
 	public SeleniumHelper(){
 	
-		//default driver
 		_driver=new Driver().getDriver();
-		// Set implicit time out of 10 seconds
 		_driver.manage().window().maximize();
 		_driver.manage().timeouts().implicitlyWait(_IMPLICIT_TIMEOUT, TimeUnit.SECONDS);
 		_driver.manage().timeouts().pageLoadTimeout(_PAGE_LOAD_TIMEOUT, TimeUnit.SECONDS);
@@ -47,11 +46,34 @@ public class SeleniumHelper {
 	* @param url takes url to be navigated as string parameter
 	*/
 	public void navigateUsingURL(String url){
-		_driver.navigate().to(url);
+		try
+		{
+			_driver.navigate().to(url);
+		}
+		catch(Exception e)
+		{
+			e.printStackTrace();
+			return ;
+		}
 	}
 	
 	/**
-	* 
+	 * This methods helps to navigate back in the browser
+	 */
+	public void navigateBack(){
+		try
+		{
+			_driver.navigate().back();
+		}
+		catch(Exception e)
+		{
+			e.printStackTrace();
+			return ;
+		}
+	}
+	
+	/**
+	* This methods waits for the page to load 
 	*/
 	public void waitForPageLoad(){
 	
@@ -73,17 +95,25 @@ public class SeleniumHelper {
 	}
 	
 	/**
-	* 
+	* This method returns the current url of the browser
 	* @return
 	*/
 	public String getCurrentUrl(){
-		return _driver.getCurrentUrl();
+		try
+		{
+			return _driver.getCurrentUrl();
+		}
+		catch(Exception e)
+		{
+			e.printStackTrace();
+			return null;
+		}
 	}
 	
 	/**
-	* 
-	* @param elementID
-	* @return
+	* This methods find the element using its id, it waits until the element is visible
+	* @param elementID passes element id as a parameter to find the element
+	* @return WebElement is return for a given id
 	*/
 	public WebElement findElementByID(String elementID){
 		try 
@@ -92,15 +122,16 @@ public class SeleniumHelper {
 		}
 		catch(Exception e)
 		{
+			System.out.println("Expection occured to find element by element id "+elementID);
 			//e.printStackTrace();
 			return null;
 		}
 	}
 	
 	/**
-	* 
-	* @param ClassName
-	* @return
+	* This methods find the element using class name, it waits until the element is visible
+	* @param ClassName passes elements class name as a parameter to find the element
+	* @return WebElement is return for a given class name
 	*/
 	public WebElement findElementByClassName(String ClassName){
 		try
@@ -109,61 +140,71 @@ public class SeleniumHelper {
 		}
 		catch(Exception e)
 		{
+			System.out.println("Expection occured to find element by class name "+ClassName);			
 			//e.printStackTrace();
 			return null;
 		}
 	} 
 	
 	/**
-	* 
-	* @param ClassName
-	* @return
+	* This methods find the element using css selector, it waits until the element is visible
+	* @param ClassSelector passes elements css selector as a parameter to find the element
+	* @return WebElement is return for a given css selector
 	*/
-	public WebElement findElementByClassSelector(String ClassName){
+	public WebElement findElementByClassSelector(String ClassSelector){
 		try
 		{
-			return _wait.until(ExpectedConditions.visibilityOf(_driver.findElement(By.cssSelector(ClassName))));
+			return _wait.until(ExpectedConditions.visibilityOf(_driver.findElement(By.cssSelector(ClassSelector))));
 		}
 		catch(Exception e)
 		{
+			System.out.println("Expection occured to find element by class selector "+ClassSelector);
 			//e.printStackTrace();
 			return null;
 		}
 	} 
 	
 	/**
-	* 
-	* @param path
-	* @return
+	* This methods find the element using xpath, it waits until the element is visible
+	* @param xpath passes elements xpath as a parameter to find the element
+	* @return WebElement is return for a given xpath
 	*/
-	public WebElement findElementByXPath(String path){
+	public WebElement findElementByXPath(String xpath){
 		try
 		{
-			return _wait.until(ExpectedConditions.visibilityOf(_driver.findElement(By.xpath(path))));
+			return _wait.until(ExpectedConditions.visibilityOf(_driver.findElement(By.xpath(xpath))));
 		}
 		catch(Exception e)
 		{
+			System.out.println("Expection occured to find element by xpath "+xpath);
 			//e.printStackTrace();
 			return null;
 		}
 	}
 	
 	/**
-	* 
-	* @param element
-	* @param attr
-	* @return
+	* This methods returns a value of the attribute for a element
+	* @param element  Passes web element who's attribute value has to be found
+	* @param attr Passes element's attribute as a parameter
+	* @return value of the attribute as string
 	*/
 	public String getAttribute(WebElement element, String attr){
-		return element.getAttribute(attr);
+		try
+		{
+			return element.getAttribute(attr);
+		}
+		catch(Exception e)
+		{
+			e.printStackTrace();
+			return null;
+		}
 	}
 	
 	
 	/**
-	* 
-	* @param element
-	* @param Data
-	* @throws InterruptedException
+	* This method adds input user data to the text field
+	* @param element passes element as a parameter who's input value is to be set
+	* @param Data data to be used as input for element
 	*/
 	public void addDataToTextField(WebElement element, String Data) {
 		//int attempt=1;
@@ -176,16 +217,16 @@ public class SeleniumHelper {
 		catch(Exception e)
 		{
 			//attempt++;
-			//e.printStackTrace();
+			 e.printStackTrace();
 			//_waitForElement();
+
 		}
 
 	}
 	
 	/**
-	* 
-	* @param element
-	* @throws InterruptedException
+	* This methods helps to click a web element
+	* @param element takes web element as parameter 
 	*/
 	public void clickElement(WebElement element) {
 
@@ -195,16 +236,16 @@ public class SeleniumHelper {
 		}
 		catch(Exception e)
 		{
-			//e.printStackTrace();
+			e.printStackTrace();
 		}
 	
 	}
 	
 	/**
-	* 
-	* @param element
-	* @param text
-	* @return
+	* This method is used to match the text of the web element with a given text
+	* @param element get element whose text is to be matched
+	* @param text get text to be matched as parameter
+	* @return return boolean true if the text matches or else returns false
 	*/
 	public boolean matchText(WebElement element, String text) {
 
@@ -217,6 +258,8 @@ public class SeleniumHelper {
 			//attempt++;
 			//e.printStackTrace();
 			//_waitForElement();
+			
+			System.out.println("Expection occured to match the text "+text);
 			return false;
 		}
 	}
@@ -227,7 +270,14 @@ public class SeleniumHelper {
 	* @return
 	*/
 	public List<WebElement> findElementsByXPath(String path) {
-		return _driver.findElements(By.xpath(path));
+		try
+		{
+			return _driver.findElements(By.xpath(path));
+		}
+		catch(Exception e){
+			System.out.println("Expection occured to find the elements by xpath "+path);
+			return null;
+		}
 	}
 	
 	/**
@@ -242,24 +292,40 @@ public class SeleniumHelper {
 		}
 		catch(Exception e)
 		{
+			System.out.println("Expection occured to get cookie named "+name);
 			//e.printStackTrace();
 			return "";
 		}	
 	}
 	
+	
 	/**
-	* 
-	* @param className
-	* @return
+	* This method helps to find elements by class name
+	* @param className ClassName is pass as parameter to find the list of elements
+	* @return List of WebElement is returned
 	*/
 	public List<WebElement> findElementsByClassName(String className) {
-		return _driver.findElements(By.className(className));
+		try
+		{
+			return _driver.findElements(By.className(className));
+		}
+		catch(Exception e){
+			System.out.println("Expection occured to find the elements by class name "+className);
+			return null;
+		}
 	}
 	
 	public void Close() {
 		_driver.close();
 	}
-
+	
+	
+	
+	/**
+	 * This methods takes a element as returns the text value in it
+	 * @param element takes WebElement as a parameter
+	 * @return Return text of the element as String
+	 */
 	public String getText(WebElement element) {
 		try
 		{
@@ -267,6 +333,7 @@ public class SeleniumHelper {
 		}
 		catch(Exception e)
 		{
+			System.out.println("Expection occured to get text of the element"+element);
 			//e.printStackTrace();
 			return "";
 		}

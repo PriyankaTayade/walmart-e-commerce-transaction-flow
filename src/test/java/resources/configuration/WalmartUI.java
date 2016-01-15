@@ -1,7 +1,8 @@
 package resources.configuration;
 /**
- * 
+ * This clas is to keep track of relative xpath with might change with css design
  * @author priyanka
+ * version 1.0
  *
  */
 public class WalmartUI {
@@ -24,7 +25,7 @@ public class WalmartUI {
 	
 	/**
 	 * 
-	 * @return
+	 * @return url for user login
 	 */
 	public String getURL_USER_LOGIN() {
 		return _URL_USER_LOGIN;
@@ -32,7 +33,7 @@ public class WalmartUI {
 	
 	/**
 	 * 
-	 * @return
+	 * @return url for user cart
 	 */
 	public String getURL_USER_CART() {
 		return _URL_USER_CART;
@@ -40,7 +41,7 @@ public class WalmartUI {
 	
 	/**
 	 * 
-	 * @return
+	 * @return xpath to add to cart button
 	 */
 	public String getXPATH_ADD_TO_CART() {
 		return _XPATH_ADD_TO_CART;
@@ -48,7 +49,7 @@ public class WalmartUI {
 	
 	/**
 	 * 
-	 * @return
+	 * @return xpath to number of items in cart
 	 */
 	public String getXPATH_NO_ITEMS_IN_CART() {
 		return _XPATH_NO_ITEMS_IN_CART;
@@ -56,7 +57,7 @@ public class WalmartUI {
 
 	/**
 	 * 
-	 * @return
+	 * @return xpath to first item in cart
 	 */
 	public String getXPATH_FIRST_ITEM_CART() {
 		return _XPATH_FIRST_ITEM_CART;
@@ -64,16 +65,24 @@ public class WalmartUI {
 	
 	/**
 	 * 
-	 * @return
+	 * @return xpath to remove item from cart
 	 */
 	public String getXPATH_REMOVE_ITEM_FROM_CART() {
 		return _XPATH_REMOVE_ITEM_FROM_CART;
 	}
 
+	/**
+	 * 
+	 * @return xpath to select item color radio button in save to cart page
+	 */
 	public String getXPATH_SELECT_ITEM_COLOR_RADIO_BUTTON() {
 		return _XPATH_SELECT_ITEM_COLOR_RADIO_BUTTON;
 	}
-
+	
+	/**
+	 * 
+	 * @return xpath to item name in save to cart page
+	 */
 	public String get_XPATH_ITEM_NAME_TO_SAVE_IN_CART() {
 		return _XPATH_ITEM_NAME_TO_SAVE_IN_CART;
 	}

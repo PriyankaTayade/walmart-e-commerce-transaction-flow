@@ -16,22 +16,35 @@ import org.junit.Assert;
 import org.openqa.selenium.WebElement;
 import org.testng.annotations.AfterTest;
 
+/**
+ * This class execute Transaction flow test case and provides various test which can be reused in different test suits
+ * @author priyanka tayade
+ * version 1.0
+ *  
+ */
 public class TranscationFlowTest {
 	
-	SeleniumHelper tester;
-	WalmartUI uiConfig;
-	String savedItemID;
-	String itemName;
+	private SeleniumHelper _tester;
+	private WalmartUI _uiConfig;
+	private String _savedItemID;	//If of the item to be saved in the cart of later validation
+	private String _itemName; 	//Name of the item to be saved in the cart
 	
+	
+	//************************ Before Test*************************************//
 	/**
 	 * 	Before test will initialize the driver and other required classes.
 	 */
 	@BeforeTest
 	public void beforeTest() {
 		
-		tester=new SeleniumHelper();
-		uiConfig=new WalmartUI();
+		_tester=new SeleniumHelper();
+		_uiConfig=new WalmartUI();
 	}
+	
+	
+	//************************ Test *************************************//
+	
+	
 	
 	/**
 	 * This methods is used for returning user login to walmart login page
@@ -43,23 +56,23 @@ public class TranscationFlowTest {
 	public void WalmartUserLogin(String email, String password) {
 		try{	
 			//Navigate to walmart login page
-			tester.navigateUsingURL(uiConfig.getURL_USER_LOGIN());	
+			_tester.navigateUsingURL(_uiConfig.getURL_USER_LOGIN());	
 			
 			// wait for the login page to load
-			tester.waitForPageLoad();
+			_tester.waitForPageLoad();
 			
 			//login as using previously registered user credentials.
-			tester.addDataToTextField(tester.findElementByID("login-username"), email);
-			tester.addDataToTextField(tester.findElementByID("login-password"), password);
+			_tester.addDataToTextField(_tester.findElementByID("login-username"), email);
+			_tester.addDataToTextField(_tester.findElementByID("login-password"), password);
 			
-			tester.clickElement(tester.findElementByClassName("login-sign-in-btn"));
+			_tester.clickElement(_tester.findElementByClassName("login-sign-in-btn"));
 			
 			//wait for user to sign in
-			tester.waitForPageLoad();
+			_tester.waitForPageLoad();
 			
 			//verify if user is successfully logged in
-			assert(tester.findElementByClassName("recent-orders-heading")!=null);
-			assert(tester.matchText(tester.findElementByClassName("recent-orders-heading"), "Welcome to your Walmart account!"));		
+			assert(_tester.findElementByClassName("recent-orders-heading")!=null);
+			assert(_tester.matchText(_tester.findElementByClassName("recent-orders-heading"), "Welcome to your Walmart account!"));		
 		}	
 		catch(Exception e)
 		{
@@ -69,6 +82,11 @@ public class TranscationFlowTest {
 		
 	}
 	
+	
+	
+	
+	
+	
 	/**
 	 * This methods checks if the cart is empty, if it is not empty then it will delete all the items from the cart
 	 * 
@@ -77,7 +95,7 @@ public class TranscationFlowTest {
 	public void EmptyCartIfNotEmpty() {
 		try
 		{
-			if(!tester.getCookieNamed("cart-item-count").equals("0")){
+			if(!_tester.getCookieNamed("cart-item-count").equals("0")){
 							
 				removeItemFromCart();
 			}
@@ -87,8 +105,15 @@ public class TranscationFlowTest {
 		catch(Exception e){
 			Assert.assertFalse("Exception occured !", true);
 			e.printStackTrace();
+			WalmartUserLogout();
 		}
 	}
+	
+	
+	
+	
+	
+	
 	
 	/**
 	 * This methods searches for an item with a keyword using the walmart search bar
@@ -102,8 +127,8 @@ public class TranscationFlowTest {
 		try
 		{
 			//Search for an Item from the test data pool
-			tester.addDataToTextField(tester.findElementByID("search"),item);
-			tester.clickElement(tester.findElementByClassName("searchbar-submit"));
+			_tester.addDataToTextField(_tester.findElementByID("search"),item);
+			_tester.clickElement(_tester.findElementByClassName("searchbar-submit"));
 			
 			//Wait for the search results
 			Thread.sleep(5000);
@@ -113,7 +138,7 @@ public class TranscationFlowTest {
 			
 			while(true)
 			{
-				if(tester.findElementByXPath(".//*[@id='tile-container']")==null)
+				if(_tester.findElementByXPath(".//*[@id='tile-container']")==null)
 				{
 					if(attempt>5)
 					{
@@ -123,7 +148,7 @@ public class TranscationFlowTest {
 					
 					System.out.println("For Special cases like toys, search in category");
 				
-					tester.clickElement(tester.findElementByXPath(".//*[@id='js-category-container']/div[2]/div[1]/div[1]/div/div/div/ul/li[1]/a"));				
+					_tester.clickElement(_tester.findElementByXPath(".//*[@id='js-category-container']/div[2]/div[1]/div[1]/div/div/div/ul/li[1]/a"));				
 				
 					attempt++;
 				}
@@ -135,8 +160,13 @@ public class TranscationFlowTest {
 		{
 			Assert.assertFalse("Exception occured !", true);
 			e.printStackTrace();
+			WalmartUserLogout();
 		}
 	}
+	
+	
+	
+	
 	
 	/**
 	 * This methods selects the valid item which is in stock from the list of items displayed form the search result 
@@ -152,32 +182,32 @@ public class TranscationFlowTest {
 			
 			while(true)
 			{
-				List<WebElement> element=tester.findElementsByClassName("js-product-image");
+				List<WebElement> element=_tester.findElementsByClassName("js-product-image");
 			
-				tester.navigateUsingURL(tester.getAttribute(element.get(productIndex),"href"));
-				tester.waitForPageLoad();
+				_tester.navigateUsingURL(_tester.getAttribute(element.get(productIndex),"href"));
+				_tester.waitForPageLoad();
 				
 				//String xpath="html/body/div[2]/section/section[4]/div/div[2]/div[1]/div[5]/div[2]/div/div[2]/div/div[2]/div/div[1]/div/div/div/span[1]/label/span";
 				
-				if(tester.findElementByXPath(uiConfig.getXPATH_SELECT_ITEM_COLOR_RADIO_BUTTON())!=null)
+				if(_tester.findElementByXPath(_uiConfig.getXPATH_SELECT_ITEM_COLOR_RADIO_BUTTON())!=null)
 				{
-					tester.clickElement(tester.findElementByXPath(uiConfig.getXPATH_SELECT_ITEM_COLOR_RADIO_BUTTON()));
+					_tester.clickElement(_tester.findElementByXPath(_uiConfig.getXPATH_SELECT_ITEM_COLOR_RADIO_BUTTON()));
 				}
 			
 				Thread.sleep(5000);
 			
-				if(tester.findElementByClassName("js-cell-coverage-field")!=null)
+				if(_tester.findElementByClassName("js-cell-coverage-field")!=null)
 				{
-					tester.addDataToTextField(tester.findElementByClassName("js-cell-coverage-field"),zipcode);
+					_tester.addDataToTextField(_tester.findElementByClassName("js-cell-coverage-field"),zipcode);
 				}
 			
-				if(tester.findElementByClassName("js-cell-coverage-check-btn")!=null)
+				if(_tester.findElementByClassName("js-cell-coverage-check-btn")!=null)
 				{
-					tester.clickElement(tester.findElementByClassName("js-cell-coverage-check-btn"));
+					_tester.clickElement(_tester.findElementByClassName("js-cell-coverage-check-btn"));
 				}
 			
 			
-				if(tester.findElementByXPath(uiConfig.getXPATH_ADD_TO_CART())!=null)
+				if(_tester.findElementByXPath(_uiConfig.getXPATH_ADD_TO_CART())!=null)
 				{
 					Assert.assertTrue("Valid item is selected successfully !", true);
 					break;
@@ -190,7 +220,7 @@ public class TranscationFlowTest {
 						break;
 					}
 					productIndex++;
-					tester._driver.navigate().back();				
+					_tester.navigateBack();				
 				}
 			}			
 		}
@@ -198,8 +228,15 @@ public class TranscationFlowTest {
 		{
 			Assert.assertFalse("Exception occured !", true);
 			e.printStackTrace();
+			WalmartUserLogout();
 		}
 	}
+	
+	
+	
+	
+	
+	
 	
 	/**
 	 * This Methods adds an item to the shopping cart
@@ -209,16 +246,16 @@ public class TranscationFlowTest {
 		//Add Item to the cart
 		try
 		{
-			tester.waitForPageLoad();
+			_tester.waitForPageLoad();
 			
-			savedItemID=tester.getCurrentUrl();
-			savedItemID=savedItemID.substring(savedItemID.lastIndexOf("/")+1);
+			_savedItemID=_tester.getCurrentUrl();
+			_savedItemID=_savedItemID.substring(_savedItemID.lastIndexOf("/")+1);
 			
-			itemName=tester.getText(tester.findElementByXPath(uiConfig.get_XPATH_ITEM_NAME_TO_SAVE_IN_CART()));
+			_itemName=_tester.getText(_tester.findElementByXPath(_uiConfig.get_XPATH_ITEM_NAME_TO_SAVE_IN_CART()));
 			
-			System.out.println("Save Item in the cart with Id: "+savedItemID);
+			System.out.println("Save Item in the cart with Id: "+_savedItemID);
 			
-			tester.clickElement(tester.findElementByXPath(uiConfig.getXPATH_ADD_TO_CART()));
+			_tester.clickElement(_tester.findElementByXPath(_uiConfig.getXPATH_ADD_TO_CART()));
 			
 			Assert.assertTrue("Item Is added to the cart !", true);
 		}
@@ -226,9 +263,18 @@ public class TranscationFlowTest {
 		{
 			Assert.assertFalse("Exception occured !", true);
 			e.printStackTrace();
+			// clean up
+			removeItemFromCart();
+			WalmartUserLogout();
 		}
 	
 	}
+	
+	
+	
+	
+	
+	
 	
 	/**
 	 * This methods validated if the same item is present in the cart as previously saved to the cart, 
@@ -239,31 +285,38 @@ public class TranscationFlowTest {
 	
 		try
 		{
-			if(!tester.getCurrentUrl().equalsIgnoreCase(uiConfig.getURL_USER_CART()));
+			//Check if user is in cart page if not then navigate to cart
+			if(!_tester.getCurrentUrl().equalsIgnoreCase(_uiConfig.getURL_USER_CART()));
 			{
-				tester.navigateUsingURL(uiConfig.getURL_USER_CART());
+				_tester.navigateUsingURL(_uiConfig.getURL_USER_CART());
 			
-				tester.waitForPageLoad();
+				_tester.waitForPageLoad();
 			}
 			
-			if(!tester.matchText(tester.findElementByXPath(uiConfig.getXPATH_NO_ITEMS_IN_CART()),"Your cart: 1 item."))
+			//Check if there is only one item in the cart
+			if(!_tester.matchText(_tester.findElementByXPath(_uiConfig.getXPATH_NO_ITEMS_IN_CART()),"Your cart: 1 item."))
 			{
 				Assert.assertFalse("More than one item is present in the cart", true);
 			}
 			else Assert.assertTrue("Only 1 item is present in the cart", true);
 			
-			String itemIDCart=tester.getAttribute(tester.findElementByID("CartItemInfo"),"data-us-item-id");
+			
+			String itemIDCart=_tester.getAttribute(_tester.findElementByID("CartItemInfo"),"data-us-item-id");
 			System.out.println("Item present in the cart with Id: "+itemIDCart);
 			
-			if(itemIDCart.toLowerCase().trim().equals(savedItemID.toLowerCase().trim()))
+			//Check if the item id matches with the item which was added to the cart
+			if(itemIDCart.toLowerCase().trim().equals(_savedItemID.toLowerCase().trim()))
 			{
 				Assert.assertTrue("Item in the cart match with the item saved", true);
 			}
+			//If item id only differs by last digit then check if the name matches
 			else if(itemIDCart.toLowerCase().trim().substring(0,itemIDCart.trim().length()-1)
-					.equals(savedItemID.toLowerCase().trim().substring(0,savedItemID.trim().length()-1)))
+					.equals(_savedItemID.toLowerCase().trim().substring(0,_savedItemID.trim().length()-1)))
 			{
 				System.out.println("Match Item Name, if only the last digit of item id do not match");
-				if(tester.matchText(tester.findElementByXPath(".//*[@id='CartItemInfo']/span"), itemName))
+				
+				//Check if the item name matches
+				if(_tester.matchText(_tester.findElementByXPath(".//*[@id='CartItemInfo']/span"), _itemName))
 				Assert.assertTrue("Item in the cart match with the item saved", true);
 			}
 			else 
@@ -275,8 +328,17 @@ public class TranscationFlowTest {
 		{
 			Assert.assertFalse("Exception occured !", true);
 			e.printStackTrace();
+			
+			// clean up
+			removeItemFromCart();
+			WalmartUserLogout();
 		}
 	}
+	
+	
+	
+	
+	
 	
 	/**
 	 * This methods empty the user shopping cart
@@ -292,11 +354,13 @@ public class TranscationFlowTest {
 	 * @throws InterruptedException If interrupted during wait this class throws an Interrupted Exception
 	 */
 	@Test(dependsOnMethods="EmptyCart")
-	public void WalmartUserLogout() throws InterruptedException {
+	public void WalmartUserLogout() {
 		try{
 			//Navigate to login page		
-			tester.navigateUsingURL("https://www.walmart.com/account/logout"); 
-			if(tester.findElementByClassName("signout-wrapper")!=null)
+			_tester.navigateUsingURL("https://www.walmart.com/account/logout"); 
+			
+			//check if user has successfully logged out 
+			if(_tester.findElementByClassName("signout-wrapper")!=null)
 				Assert.assertTrue("User Logout successfully", true);
 			else 
 				Assert.assertFalse("User did not Logout successfully", true);
@@ -307,7 +371,13 @@ public class TranscationFlowTest {
 			e.printStackTrace();
 		}
 	}
+
 	
+	
+	
+	
+	
+	//************************ data providers*************************************//
 	/**
 	 * This method provides data for User Login
 	 * @return return Object array with user name and passwords as values for walmart user sign in
@@ -321,6 +391,12 @@ public class TranscationFlowTest {
 		};
 	}
 	
+
+	
+	
+	
+	
+	//************************ After Test*************************************//
 	/**
 	 * This method is executed after the test is run, to close the driver or can be used for other tier down process
 	 */
@@ -328,7 +404,7 @@ public class TranscationFlowTest {
 	public void afterTest() {
 		try
 		{
-			tester.Close();
+			_tester.Close();
 		}
 		catch(Exception e)
 		{
@@ -337,26 +413,32 @@ public class TranscationFlowTest {
 	}
 	
 	
+	
+	
+	
+	
+	
+	//************************ other methods *************************************//
 	public void removeItemFromCart() {
 
 		try
 		{
 			//IF user is not in shopping cart page to to cart url
-			if(!tester.getCurrentUrl().equalsIgnoreCase(uiConfig.getURL_USER_CART()))
+			if(!_tester.getCurrentUrl().equalsIgnoreCase(_uiConfig.getURL_USER_CART()))
 			{
-				tester.navigateUsingURL(uiConfig.getURL_USER_CART());
+				_tester.navigateUsingURL(_uiConfig.getURL_USER_CART());
 				//wait for the page to load
-				tester.waitForPageLoad();
+				_tester.waitForPageLoad();
 			}
 			
 			while(true)
 			{
 				//get the list of items in cart ( the elements variable contains remove button for each item )
-				List<WebElement> removeElements = tester.findElementsByXPath(uiConfig.getXPATH_REMOVE_ITEM_FROM_CART());    
+				List<WebElement> removeElements = _tester.findElementsByXPath(_uiConfig.getXPATH_REMOVE_ITEM_FROM_CART());    
 				
 				//If element list is not empty or null click to remove first element from the cart
 				if(removeElements!=null && !removeElements.isEmpty())
-					tester.clickElement(removeElements.get(0));	
+					_tester.clickElement(removeElements.get(0));	
 				else break; //if no remove element is found, that means cart is empty and break from the loop
 				
 				if(removeElements.size()<2)
@@ -364,7 +446,8 @@ public class TranscationFlowTest {
 	
 			}
 			
-			List<WebElement> removeElements = tester.findElementsByXPath(uiConfig.getXPATH_REMOVE_ITEM_FROM_CART());
+			//check if remove cart was successful
+			List<WebElement> removeElements = _tester.findElementsByXPath(_uiConfig.getXPATH_REMOVE_ITEM_FROM_CART());
 			if(removeElements==null || removeElements.isEmpty())
 				Assert.assertTrue("Cart is Emptied Succesfully", true);
 			else 
@@ -374,6 +457,7 @@ public class TranscationFlowTest {
 		{
 			Assert.assertFalse("Exception occured !", true);
 			e.printStackTrace();
+			WalmartUserLogout();
 		}
 	}
 }
