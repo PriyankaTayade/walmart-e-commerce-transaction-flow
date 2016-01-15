@@ -96,7 +96,7 @@ public class SeleniumHelper {
 	
 	/**
 	* This method returns the current url of the browser
-	* @return
+	* @return returns current url
 	*/
 	public String getCurrentUrl(){
 		try
@@ -248,26 +248,30 @@ public class SeleniumHelper {
 	* @return return boolean true if the text matches or else returns false
 	*/
 	public boolean matchText(WebElement element, String text) {
-
-		try
+		int attempt=0;
+		while(attempt<5)
 		{
-			return _wait.until(ExpectedConditions.textToBePresentInElement(element, text));
+			try
+			{
+				return _wait.until(ExpectedConditions.textToBePresentInElement(element, text));
+			}
+			catch(Exception e)
+			{
+				attempt++;
+				e.printStackTrace();
+				//_waitForElement();
+				
+				System.out.println("Expection occured to match the text "+text);
+				
+			}
 		}
-		catch(Exception e)
-		{
-			//attempt++;
-			//e.printStackTrace();
-			//_waitForElement();
-			
-			System.out.println("Expection occured to match the text "+text);
-			return false;
-		}
+		return false;
 	}
 	
 	/**
-	* 
-	* @param path
-	* @return
+	* This class finds elements by xpaths
+	* @param path takes xpath as parameter
+	* @return returns list of web elements
 	*/
 	public List<WebElement> findElementsByXPath(String path) {
 		try
@@ -281,9 +285,9 @@ public class SeleniumHelper {
 	}
 	
 	/**
-	* 
-	* @param name
-	* @return
+	* This class gets the value of the cookie by its name
+	* @param name get cookie name as parameter 
+	* @return returns value of the cookie as string
 	*/
 	public String getCookieNamed(String name){
 		try

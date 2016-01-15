@@ -148,6 +148,8 @@ TEST DATA:
 	Password:  abcd123
 
  Search terms: tv, socks, dvd, toys, iPhone
+ 
+ Address/Zipcode: 95050
 	
 
 INSTALLATION GUIDE FOR WINDOWS

@@ -171,11 +171,11 @@ public class TranscationFlowTest {
 	/**
 	 * This methods selects the valid item which is in stock from the list of items displayed form the search result 
 	 * to view the item details, 
-	 * 
+	 * @param zipcode takes zipcode as parameter to check availability of item in the area
 	 */
 	@Test(dependsOnMethods="SearchForItem")
 	@Parameters("zipcode")
-	public void SelectItemViewProductDetails(String zipcode) throws InterruptedException{
+	public void SelectItemViewProductDetails(String zipcode) {
 		try
 		{	
 			int productIndex=0;
@@ -291,6 +291,7 @@ public class TranscationFlowTest {
 				_tester.navigateUsingURL(_uiConfig.getURL_USER_CART());
 			
 				_tester.waitForPageLoad();
+				
 			}
 			
 			//Check if there is only one item in the cart
@@ -351,7 +352,6 @@ public class TranscationFlowTest {
 	
 	/**
 	 * This class helps user to log out from the current session
-	 * @throws InterruptedException If interrupted during wait this class throws an Interrupted Exception
 	 */
 	@Test(dependsOnMethods="EmptyCart")
 	public void WalmartUserLogout() {
@@ -419,6 +419,9 @@ public class TranscationFlowTest {
 	
 	
 	//************************ other methods *************************************//
+	/**
+	 * This function is used to empty the cart
+	 */
 	public void removeItemFromCart() {
 
 		try
